@@ -26,6 +26,9 @@ const modeSelectorButtons = document.querySelectorAll(".modeSelector");
 modeSelectorButtons.forEach((elem) =>
   elem.addEventListener("click", chooseGameMode)
 );
+document
+  .querySelector("#colorSelector")
+  .addEventListener("input", setSquareColor);
 
 function initialiseGrid() {
   // Select etch-a-sketch grid area
@@ -45,6 +48,9 @@ function initialiseGrid() {
 
   // Initialise status bar
   document.querySelector(".game-status").textContent = gameStatus;
+
+  // Initialise color picker
+  document.querySelector("#colorSelector").value = squareColor;
 }
 
 function createDivs(gridSize) {
@@ -177,4 +183,9 @@ function getRandomColor() {
     color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
+}
+
+function setSquareColor() {
+  squareColor = document.querySelector("#colorSelector").value;
+  console.log(squareColor);
 }
