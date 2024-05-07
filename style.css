@@ -2,8 +2,15 @@ header h1 {
   font-family: "Jaro", Helvetica, Arial, "Times New Roman";
   font-weight: 500;
   color: white;
-  font-size: 64px;
+  font-size: 4em;
   letter-spacing: 4px;
+  background-color: red;
+}
+
+* {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 body {
