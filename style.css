@@ -31,16 +31,40 @@ header {
 
 /* Buttons */
 button {
-  width: 256px;
-  height: 32px;
-  background-color: darkblue;
-  color: white;
-  opacity: 1;
+  background: rgb(170, 165, 157);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-button:hover {
+button:hover .front {
   cursor: pointer;
-  opacity: 0.8;
+  transform: translateY(-6px);
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+button:active .front {
+  transform: translateY(-2px);
+}
+
+.front {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  border-radius: 8px;
+  will-change: transform;
+  transition: transform 250ms;
+  background: oldlace;
+  color: rgb(230, 150, 3);
+  font-size: 1rem;
+  font-weight: 600;
+  transform: translateY(-4px);
+  opacity: 1;
 }
 
 main,
@@ -51,14 +75,13 @@ main,
 .ui-element-container {
   width: 100%;
   padding: 0;
-  margin: 0;
-  background-color: beige;
+  margin: 1rem 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .uiElement {
-  width: 50%;
+  width: 45%;
 }
 
 .uiElement.resetElement {
