@@ -7,7 +7,7 @@ const DEFAULT_COLOR_MODE_COLOR = "#FFFFFF";
 let customGridSize = DEFAULT_GRID_SIZE;
 let gameStatus = DEFAULT_STATUS;
 let squareColor = DEFAULT_COLOR;
-let mouseDown = false;
+let mouseDownStatus = false;
 
 window.onload = () => initialiseGrid();
 
@@ -18,8 +18,10 @@ document
 document
   .querySelector("#gridSizeSliderInput")
   .addEventListener("input", () => readSliderValue());
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
+document.querySelector("#drawing-area-inner").onmousedown = () =>
+  (mouseDownStatus = true);
+document.querySelector("#drawing-area-inner").onmouseup = () =>
+  (mouseDownStatus = false);
 
 function initialiseGrid() {
   // Select etch-a-sketch grid area
@@ -33,7 +35,7 @@ function initialiseGrid() {
   createDivs(customGridSize);
   getInnerSize();
 
-  // Initialise slider and pass event handler
+  // Initialise slider
   const sliderElement = document.querySelector("#gridSizeSliderInput");
   sliderElement.value = customGridSize;
 }
@@ -49,7 +51,6 @@ function createDivs(gridSize) {
   }
 
   for (row = 0; row < gridSize; row++) {
-    console.log("creating divs!");
     let rowDiv = document.createElement("div");
     rowDiv.id = `row${row}-container`;
     innerDrawingArea.appendChild(rowDiv);
@@ -59,7 +60,6 @@ function createDivs(gridSize) {
       let colDiv = document.createElement("div");
       colDiv.id = `row${row}-col${col}-box`;
       rowDiv.appendChild(colDiv);
-      // colDiv.innerHTML = `${row}-${col}`;
       colDiv.style = `height:${perSquareSize}px; width: ${perSquareSize}px;`;
       colDiv.classList = "drawing-square";
       colDiv.addEventListener("mousemove", modifySquare);
@@ -86,7 +86,6 @@ function calculateSquareSize(totalSquareSize, gridSize) {
 function redrawGrid() {
   getInnerDrawingArea().innerHTML = "";
   initialiseGrid();
-  console.log("redrawing grid!");
 }
 
 function readSliderValue() {
@@ -98,11 +97,10 @@ function readSliderValue() {
 
 function modifySquare(event) {
   if (gameStatus == "Colour Mode") {
-    if (!mouseDown) return;
+    if (!mouseDownStatus) return;
     // Get current square style
     let existingStyle = event.currentTarget.style;
     event.currentTarget.style.backgroundColor = squareColor;
-    console.log(event);
     console.log(`modifying ${event.currentTarget.id}`);
   }
 }
