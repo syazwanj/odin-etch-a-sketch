@@ -1,9 +1,9 @@
 const DEFAULT_GRID_SIZE = 16;
 const MIN_GRID_SIZE = 16;
 const MAX_GRID_SIZE = 64;
-const DEFAULT_COLOR = "rgba(255, 0, 0, 1.0)";
+const DEFAULT_COLOR = "#ff0000";
 const DEFAULT_STATUS = "Colour Mode";
-const DEFAULT_COLOR_MODE_COLOR = "rgb(255, 255, 255)";
+const DEFAULT_COLOR_MODE_COLOR = "rgb(255, 255, 0)";
 let customGridSize = DEFAULT_GRID_SIZE;
 let gameStatus = DEFAULT_STATUS;
 let squareColor = DEFAULT_COLOR;
@@ -51,6 +51,7 @@ function initialiseGrid() {
 
   // Initialise color picker
   document.querySelector("#colorSelector").value = squareColor;
+  console.log(squareColor, document.querySelector("#colorSelector").value);
 }
 
 function createDivs(gridSize) {
@@ -186,6 +187,9 @@ function getRandomColor() {
 }
 
 function setSquareColor() {
-  squareColor = document.querySelector("#colorSelector").value;
-  console.log(squareColor);
+  const selectorValue = document.querySelector("#colorSelector").value;
+  squareColor = selectorValue;
+  document.querySelector(
+    "#colorSelector"
+  ).style.boxShadow = `0 0 20px ${selectorValue}`;
 }
