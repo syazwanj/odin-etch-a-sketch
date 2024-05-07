@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch-A-Sketch</title>
+    <link rel="icon" href="./src/etch-a-sketch.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Outfit:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header><h1>Etch-a-Sketch</h1></header>
+    <main>
+      <div class="content">
+        <div id="ui-row-1" class="ui-element-container">
+          <button class="uiElement">Colour</button>
+          <button class="uiElement">RGB Mode</button>
+        </div>
+        <div id="ui-row-2" class="ui-element-container">
+          <button class="uiElement">Darken</button>
+          <button class="uiElement">Lighten</button>
+        </div>
+        <div class="game-status">status</div>
+        <div id="drawing-area">
+          <div id="drawing-area-outer">
+            <div id="drawing-area-inner"></div>
+          </div>
+          <div id="drawing-area-inner"></div>
+        </div>
+        <div id="size-picking-area">
+          <p id="current-size">grid size: <span id="grid-size"></span></p>
+          <input
+            type="range"
+            value="16"
+            min="16"
+            max="64"
+            class="gridSizeSlider"
+            id="gridSizeSliderInput"
+          />
+        </div>
+        <div class="ui-element-container">
+          <button class="uiElement resetElement" id="gameResetButton">
+            Reset
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="text/javascript" src="./ui.js"></script>
+</html>

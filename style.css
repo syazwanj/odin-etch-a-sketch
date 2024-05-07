@@ -1,0 +1,108 @@
+header h1 {
+  font-family: "Jaro", Helvetica, Arial, "Times New Roman";
+  font-weight: 500;
+  color: white;
+  font-size: 64px;
+  letter-spacing: 4px;
+}
+
+body {
+  background-color: #005555;
+  margin: 0;
+  padding: 0;
+}
+
+main,
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Buttons */
+button {
+  width: 256px;
+  height: 32px;
+  background-color: darkblue;
+  color: white;
+  opacity: 1;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+main,
+.uiElement {
+  text-transform: uppercase;
+}
+
+.ui-element-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: beige;
+  display: flex;
+  justify-content: space-between;
+}
+
+.uiElement {
+  width: 50%;
+}
+
+.uiElement.resetElement {
+  width: 100%;
+}
+
+.game-status {
+  width: 100%;
+  display: flex;
+  margin: 8px 0;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 24px;
+}
+
+#size-picking-area {
+  width: 100%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.gridSizeSlider {
+  width: 60%;
+}
+/* Drawing Area */
+#drawing-area-outer {
+  width: 768px;
+  background-color: grey;
+  box-shadow: 0px 10px #404040;
+  padding: 8px;
+  aspect-ratio: 1/1;
+}
+
+#drawing-area-inner {
+  display: flex;
+  flex-direction: column;
+  background-color: green;
+  height: 100%;
+}
+
+/* Cells */
+.drawing-square {
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+.drawing-square:hover {
+  background-color: black;
+  transition: 0.3s;
+}
