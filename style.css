@@ -139,7 +139,7 @@ main,
 #drawing-area-outer {
   width: 768px;
   background-color: grey;
-  box-shadow: 0px 10px #404040;
+  box-shadow: 0 1rem 0.5rem #404040;
   padding: 8px;
   aspect-ratio: 1/1;
 }
@@ -159,4 +159,21 @@ main,
 .drawing-square:hover {
   background-color: black;
   transition: 0.3s;
+}
+
+/* Footer */
+.footer {
+  background-color: hsl(216, 30.6%, 9.6%);
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+footer a {
+  color: skyblue;
 }
